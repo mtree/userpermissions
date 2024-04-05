@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="table-container">
+    <app-user-list [userList]="userList$" (deleteUser)="handleDeleteUser($event)" (updateUser)="handleUpdateUser($event)"></app-user-list>
+  </div>
+  <div class="action-bar-container">
+    <button mat-raised-button color="primary" (click)="handleAddUser()">Add User</button>
+    <app-navigation></app-navigation>
+  </div>
+</div>

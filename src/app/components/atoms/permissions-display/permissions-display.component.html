@@ -1,0 +1,15 @@
+<div class="container">
+  <ul>
+    <li *ngFor="let permission of permissions" [ngSwitch]="permission.status">
+      <ng-container *ngSwitchCase="PermissionStatus.User">
+        <span class="user">{{ permission.name }}</span>
+      </ng-container>
+      <ng-container *ngSwitchCase="PermissionStatus.UserGroup">
+        <span class="userGroup">{{ permission.name }}</span>
+      </ng-container>
+      <ng-container *ngSwitchCase="PermissionStatus.Negative">
+        <span class="negative">{{ permission.name }}</span>
+      </ng-container>
+    </li>
+  </ul>
+</div>

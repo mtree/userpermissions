@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="table-container">
+    <app-permission-list [permissionList]="permissionList$" (deletePermission)="handleDeletePermission($event)" (updatePermission)="handleUpdatePermission($event)"></app-permission-list>
+  </div>
+  <div class="action-bar-container">
+    <button mat-raised-button color="primary" (click)="handleAddPermission()">Add Permission</button>
+    <app-navigation></app-navigation>
+  </div>
+</div>

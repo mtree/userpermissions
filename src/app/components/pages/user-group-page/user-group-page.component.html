@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="table-container">
+    <app-user-group-list [userGroupList]="userGroupList$" (deleteUserGroup)="handleDeleteUserGroup($event)" (updateUserGroup)="handleUpdateUserGroup($event)"></app-user-group-list>
+  </div>
+  <div class="action-bar-container">
+    <button mat-raised-button color="primary" (click)="handleAddUserGroup()">Add User Group</button>
+    <app-navigation></app-navigation>
+  </div>
+</div>

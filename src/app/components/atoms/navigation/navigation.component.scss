@@ -1,0 +1,13 @@
+:host {
+  .container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 5px;
+
+    button {
+      &.active {
+        background-color: rgb(130, 219, 235);
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="userGroupForm">
+      <input type="hidden" formControlName="id">
+      <div>
+        <mat-form-field>
+          <input matInput formControlName="name" placeholder="Name">
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field>
+          <mat-label>Permissions</mat-label>
+          <mat-select formControlName="permissions" multiple [compareWith]="entityComparisonFunction">
+            <mat-option *ngFor="let permission of (permissionOptions$ | async)?.data" [value]="permission">
+              {{ permission.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field>
+          <mat-label>Negative permissions</mat-label>
+          <mat-select formControlName="negativePermissions" multiple [compareWith]="entityComparisonFunction">
+            <mat-option *ngFor="let permission of (permissionOptions$ | async)?.data" [value]="permission">
+              {{ permission.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="action-bar-container">
+        <button mat-raised-button color="primary" (click)="saveUserGroupClicked($event)">Save</button>
+        <button mat-raised-button routerLink="/user-groups">Cancel</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
