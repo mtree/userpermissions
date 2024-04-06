@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { UserGroupService } from './user-group.service';
 import { UserGroup } from './user-group.entity';
-import { UpsertUserGroupDto } from './dto/user-group.dto';
+import { UpsertUserGroupDto } from './dto/upsert-user-group.dto';
 
 @Controller('user-group')
 export class UserGroupController {
@@ -10,6 +10,11 @@ export class UserGroupController {
   @Get()
   findAll(): Promise<Array<UserGroup>> {
     return this.userGroupService.findAll();
+  }
+
+  @Get(':id')
+  find(@Param('id') id: string): Promise<UserGroup> {
+    return this.userGroupService.find(id);
   }
 
   @Post()

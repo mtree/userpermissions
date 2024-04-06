@@ -1,4 +1,4 @@
-import { IApiService } from "./api.service";
+import { IApiService } from "./api.interface";
 import { MockApiService } from "./mock-api.service";
 
 /**

@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { API_SERVICE_TOKEN } from '../../../app.component';
-import { IApiService } from '../../../lib/api/api.service';
+import { IApiService } from '../../../lib/api/api.interface';
 import { IPermission } from '../../../../model/permission';
 import { PermissionFormComponent } from "../../organisms/permission-form/permission-form.component";
 

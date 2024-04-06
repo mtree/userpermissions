@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UserGroup } from './user-group.entity';
 import { Repository } from 'typeorm';
-import { UpsertUserGroupDto } from './dto/user-group.dto';
+import { UpsertUserGroupDto } from './dto/upsert-user-group.dto';
 import { Permission } from '../permission/permission.entity';
 
 @Injectable()
@@ -10,16 +10,26 @@ export class UserGroupService {
   @InjectRepository(UserGroup)
   private readonly userGroupRepository: Repository<UserGroup>;
   @InjectRepository(Permission)
-  private readonly permissionRepository: Repository<UserGroup>;
+  private readonly permissionRepository: Repository<Permission>;
 
   async findAll(): Promise<Array<UserGroup>> {
-    return await this.userGroupRepository.find();
+    return await this.userGroupRepository.find({ relations: ['permissions', 'negativePermissions'] });
+  }
+
+  async find(id: string): Promise<UserGroup> {
+    return await this.userGroupRepository.findOne({
+      where: { id },
+      relations: ['permissions', 'negativePermissions']
+    });
   }
 
   async upsert(upsertUserGroupDto: UpsertUserGroupDto): Promise<any>{
-    const { name, permissions, negativePermissions } = upsertUserGroupDto;
+    const { id, name, permissions, negativePermissions } = upsertUserGroupDto;
 
     const userGroup = new UserGroup();
+    if (id) {
+      userGroup.id = id;
+    }
     userGroup.name = name;
 
     // Find or create the permissions
@@ -34,16 +44,34 @@ export class UserGroupService {
           permission.id = p.id;
           permission.name = p.name;
 
-          await this.permissionRepository.save(permission);
+          return await this.permissionRepository.save(permission, { });
         }
 
         return permission;
       })
     );
 
-    // Assign the permissions to the user group
+    const negativePermissionEntities = await Promise.all(
+      negativePermissions.map(async (p) => {
+        let permission: Permission = await this.permissionRepository.findOneBy({
+          id: p.id
+        });
+
+        if (!permission) {
+          permission = new Permission();
+          permission.id = p.id;
+          permission.name = p.name;
+
+          return await this.permissionRepository.save(permission);
+        }
+
+        return permission;
+      })
+    );
+
+    // Assign  permissions to the user group
     userGroup.permissions = permissionEntities;
-    userGroup.negativePermissions = negativePermissions
+    userGroup.negativePermissions = negativePermissionEntities;
 
     // Save the user group entity
     return await this.userGroupRepository.save(userGroup);

@@ -8,6 +8,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Permission } from './features/permission/permission.entity';
 import { User } from './features/user/user.entity';
 import { UserGroup } from './features/user-group/user-group.entity';
+import { APP_INTERCEPTOR } from '@nestjs/core';
+import { WrapResponseInterceptor } from './interceptors/wrap-response.interceptor';
 
 @Module({
   imports: [
@@ -22,6 +24,12 @@ import { UserGroup } from './features/user-group/user-group.entity';
     UserGroupModule
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: WrapResponseInterceptor
+    }
+  ],
 })
 export class AppModule {}

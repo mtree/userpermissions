@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { PermissionListComponent } from "../../organisms/permission-list/permission-list.component";
 import { NavigationComponent } from "../../atoms/navigation/navigation.component";
-import { IApiService } from '../../../lib/api/api.service';
+import { IApiService } from '../../../lib/api/api.interface';
 import { API_SERVICE_TOKEN } from '../../../app.component';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, switchMap } from 'rxjs';

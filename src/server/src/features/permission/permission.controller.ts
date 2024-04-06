@@ -12,6 +12,11 @@ export class PermissionController {
     return this.permissionService.findAll();
   }
 
+  @Get(':id')
+  find(@Param('id') id: string): Promise<Permission> {
+    return this.permissionService.find(id);
+  }
+
   @Post()
   upsert(@Body() upsertPermissionDto: UpsertPermissionDto) {
     return this.permissionService.upsert(upsertPermissionDto);

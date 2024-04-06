@@ -2,7 +2,7 @@ import { Observable, tap } from 'rxjs';
 import { IPermission } from '../../../model/permission';
 import { IUser } from '../../../model/user';
 import { IUserGroup } from '../../../model/user-group';
-import { IApiService } from './api.service';
+import { IApiService } from './api.interface';
 import { ListResponse } from '../../../model/api/list-response';
 import { EntityResponse } from '../../../model/api/entity.response';
 import { of } from 'rxjs';

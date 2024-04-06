@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { IApiService } from '../../../lib/api/api.service';
+import { IApiService } from '../../../lib/api/api.interface';
 import { API_SERVICE_TOKEN } from '../../../app.component';
 import { BehaviorSubject, Observable, Subject, of, switchMap } from 'rxjs';
 import { ListResponse } from '../../../../model/api/list-response';

@@ -2,7 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { UserGroupFormComponent } from "../../organisms/user-group-form/user-group-form.component";
 import { ActivatedRoute, Router } from '@angular/router';
 import { API_SERVICE_TOKEN } from '../../../app.component';
-import { IApiService } from '../../../lib/api/api.service';
+import { IApiService } from '../../../lib/api/api.interface';
 import { IUserGroup } from '../../../../model/user-group';
 
 @Component({

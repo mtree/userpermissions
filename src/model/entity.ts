@@ -1,4 +1,4 @@
 export interface IEntity {
-  id: string;
+  id: string | number;
   name: string;
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserFormComponent } from "../../organisms/user-form/user-form.component";
-import { IApiService } from '../../../lib/api/api.service';
+import { IApiService } from '../../../lib/api/api.interface';
 import { API_SERVICE_TOKEN } from '../../../app.component';
 import { IUser } from '../../../../model/user';
 

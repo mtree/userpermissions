@@ -13,8 +13,23 @@ export class PermissionService {
     return await this.permissionRepository.find();
   }
 
+  async find(id: string): Promise<Permission> {
+    return await this.permissionRepository.findOne({
+      where: { id }
+    });
+  }
+
   async upsert(upsertPermissionDto: UpsertPermissionDto): Promise<any>{
-    return await this.permissionRepository.upsert(upsertPermissionDto, ['id']);
+    const { id, name } = upsertPermissionDto;
+
+    const permission = new Permission();
+
+    if (id) {
+      permission.id = id;
+    }
+    permission.name = name;
+
+    return await this.permissionRepository.save(permission);
   }
 
   async delete(id:  string): Promise<any>{
