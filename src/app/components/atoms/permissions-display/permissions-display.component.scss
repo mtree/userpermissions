@@ -22,6 +22,10 @@
         &.negative {
           color: red;
         }
+
+        &.deactivated {
+          color: gray;
+        }
       }
     }
   }

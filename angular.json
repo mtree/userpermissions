@@ -83,6 +83,12 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
+            "codeCoverageExclude": [
+              "src/server/src/**/*.spec.ts"
+            ],
+            "exclude": [
+              "src/server/src/**/*.spec.ts"
+            ],
             "polyfills": [
               "zone.js",
               "zone.js/testing"

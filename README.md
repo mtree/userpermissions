@@ -8,18 +8,27 @@ Basic starter app for CRUD with simple permission system.
 - Validation
 - API Security
 - Refactor
+- Consider integrating component directive approach
+- Extract models to a separate package
 
 ## Testing
 - Permission status adnotation
 - User Endpoint
 
+```bash
+# Frontend
+$ npm test
+# Backend
+$ npm run test-backend
+```
+
 ## Installation
 
 ```bash
 # Install client deps
-npm install
+$ npm install
 # Install backend deps
-cd src/server && npm install
+$ cd src/server && npm install
 ```
 
 ## Starting

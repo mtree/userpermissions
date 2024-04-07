@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { IUser } from "../../../model/user";
-import { upsertEntities } from "../helpers/functions";
+import { upsertEntity } from "../helpers/functions";
 import { IPermission } from "../../../model/permission";
 
 /**
@@ -9,7 +9,8 @@ import { IPermission } from "../../../model/permission";
 export enum PermissionStatus {
   User,
   UserGroup,
-  Negative
+  Negative,
+  Deactivated
 }
 
 export interface AdnotatedPermission extends IPermission {
@@ -27,26 +28,34 @@ export class UserService {
       userGroup => {
         userGroup.permissions.forEach(
           permission => {
-            permissions = upsertEntities<AdnotatedPermission>(permissions, { ...permission, status: PermissionStatus.UserGroup });
+            permissions = upsertEntity<AdnotatedPermission>(permissions, { ...permission, status: PermissionStatus.UserGroup });
           })
         }
       )
 
     user.permissions.forEach(permission => {
-      permissions = upsertEntities<AdnotatedPermission>(permissions, { ...permission, status: PermissionStatus.User });
+      permissions = upsertEntity<AdnotatedPermission>(permissions, { ...permission, status: PermissionStatus.User });
     });
 
     user.userGroups.forEach(
       userGroup => {
         userGroup.negativePermissions.forEach(
           permission => {
-            permissions = upsertEntities<AdnotatedPermission>(permissions, { ...permission, status: PermissionStatus.Negative });
+            permissions = upsertEntity<AdnotatedPermission>(
+              permissions,
+              { ...permission, status: PermissionStatus.Negative },
+              { status: PermissionStatus.Deactivated }
+            );
           })
         }
       )
     
     user.negativePermissions.forEach(permission => {
-      permissions = upsertEntities<AdnotatedPermission>(permissions, { ...permission, status: PermissionStatus.Negative });
+      permissions = upsertEntity<AdnotatedPermission>(
+        permissions, 
+        { ...permission, status: PermissionStatus.Negative },
+        { status: PermissionStatus.Deactivated }
+      );
     });
 
     return permissions;

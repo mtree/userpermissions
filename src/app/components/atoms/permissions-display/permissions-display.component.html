@@ -10,6 +10,9 @@
       <ng-container *ngSwitchCase="PermissionStatus.Negative">
         <span class="negative">{{ permission.name }}</span>
       </ng-container>
+      <ng-container *ngSwitchCase="PermissionStatus.Deactivated">
+        <span class="deactivated">{{ permission.name }}</span>
+      </ng-container>
     </li>
   </ul>
 </div>
