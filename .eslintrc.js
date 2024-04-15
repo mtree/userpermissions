@@ -8,8 +8,9 @@ module.exports = {
         createDefaultProgram: true,
       },
       extends: [
+        'eslint:recommended',
         'plugin:jsdoc/recommended',
-        'plugin:@typescript-eslint/strict-type-checked',
+        'plugin:@typescript-eslint/recommended-type-checked',
         'plugin:@angular-eslint/recommended',
         'plugin:@angular-eslint/template/process-inline-templates',
         'plugin:prettier/recommended',
