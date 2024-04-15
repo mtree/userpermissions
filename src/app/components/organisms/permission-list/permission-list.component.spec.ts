@@ -9,9 +9,8 @@ describe('PermissionListComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [PermissionListComponent]
-    })
-    .compileComponents();
-    
+    }).compileComponents();
+
     fixture = TestBed.createComponent(PermissionListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

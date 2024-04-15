@@ -6,7 +6,6 @@ import { IEntity } from '../../../model/entity';
   standalone: true
 })
 export class ListIterablePipe implements PipeTransform {
-
   transform(value: Array<IEntity>, ...args: unknown[]): string {
     if (value) {
       return value.reduce((acc, curr) => {
@@ -14,7 +13,7 @@ export class ListIterablePipe implements PipeTransform {
         return acc;
       }, '');
     }
-    
+
     return '';
   }
 }

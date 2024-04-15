@@ -22,7 +22,7 @@ describe('PermissionsDisplayComponent', () => {
       permissions: [],
       negativePermissions: [],
       userGroups: []
-    }
+    };
 
     fixture.detectChanges();
   });

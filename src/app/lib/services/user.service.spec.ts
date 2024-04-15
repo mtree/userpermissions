@@ -18,7 +18,7 @@ describe('UserService', () => {
       name: 'John Doe',
       permissions: [
         { id: '1', name: 'Permission 1' },
-        { id: '2', name: 'Permission 2' },
+        { id: '2', name: 'Permission 2' }
       ],
       negativePermissions: [],
       userGroups: []
@@ -26,7 +26,7 @@ describe('UserService', () => {
 
     const expectedPermissions: AdnotatedPermission[] = [
       { id: '1', name: 'Permission 1', status: PermissionStatus.User },
-      { id: '2', name: 'Permission 2', status: PermissionStatus.User },
+      { id: '2', name: 'Permission 2', status: PermissionStatus.User }
     ];
 
     const annotatedPermissions = userService.getAdnotatedPermissions(user);
@@ -46,7 +46,7 @@ describe('UserService', () => {
           name: 'Group 1',
           permissions: [
             { id: '1', name: 'Permission 1' },
-            { id: '2', name: 'Permission 2' },
+            { id: '2', name: 'Permission 2' }
           ],
           negativePermissions: []
         }
@@ -55,7 +55,7 @@ describe('UserService', () => {
 
     const expectedPermissions: AdnotatedPermission[] = [
       { id: '1', name: 'Permission 1', status: PermissionStatus.UserGroup },
-      { id: '2', name: 'Permission 2', status: PermissionStatus.UserGroup },
+      { id: '2', name: 'Permission 2', status: PermissionStatus.UserGroup }
     ];
 
     const annotatedPermissions = userService.getAdnotatedPermissions(user);
@@ -70,14 +70,14 @@ describe('UserService', () => {
       permissions: [],
       negativePermissions: [
         { id: '1', name: 'Permission 1' },
-        { id: '2', name: 'Permission 2' },
+        { id: '2', name: 'Permission 2' }
       ],
       userGroups: []
     };
 
     const expectedPermissions: AdnotatedPermission[] = [
       { id: '1', name: 'Permission 1', status: PermissionStatus.Negative },
-      { id: '2', name: 'Permission 2', status: PermissionStatus.Negative },
+      { id: '2', name: 'Permission 2', status: PermissionStatus.Negative }
     ];
 
     const annotatedPermissions = userService.getAdnotatedPermissions(user);
@@ -98,7 +98,7 @@ describe('UserService', () => {
           permissions: [],
           negativePermissions: [
             { id: '1', name: 'Permission 1' },
-            { id: '2', name: 'Permission 2' },
+            { id: '2', name: 'Permission 2' }
           ]
         }
       ]
@@ -106,7 +106,7 @@ describe('UserService', () => {
 
     const expectedPermissions: AdnotatedPermission[] = [
       { id: '1', name: 'Permission 1', status: PermissionStatus.Negative },
-      { id: '2', name: 'Permission 2', status: PermissionStatus.Negative },
+      { id: '2', name: 'Permission 2', status: PermissionStatus.Negative }
     ];
 
     const annotatedPermissions = userService.getAdnotatedPermissions(user);
@@ -124,14 +124,14 @@ describe('UserService', () => {
       ],
       negativePermissions: [
         { id: '1', name: 'Permission 1' },
-        { id: '2', name: 'Permission 2' },
+        { id: '2', name: 'Permission 2' }
       ],
       userGroups: []
     };
 
     const expectedPermissions: AdnotatedPermission[] = [
       { id: '1', name: 'Permission 1', status: PermissionStatus.Deactivated },
-      { id: '2', name: 'Permission 2', status: PermissionStatus.Deactivated },
+      { id: '2', name: 'Permission 2', status: PermissionStatus.Deactivated }
     ];
 
     const annotatedPermissions = userService.getAdnotatedPermissions(user);
@@ -149,9 +149,7 @@ describe('UserService', () => {
         {
           id: '1',
           name: 'Group 1',
-          permissions: [
-            { id: '2', name: 'Permission 2' }
-          ],
+          permissions: [{ id: '2', name: 'Permission 2' }],
           negativePermissions: [
             { id: '1', name: 'Permission 1' },
             { id: '2', name: 'Permission 2' }
@@ -162,7 +160,7 @@ describe('UserService', () => {
 
     const expectedPermissions: AdnotatedPermission[] = [
       { id: '2', name: 'Permission 2', status: PermissionStatus.Deactivated },
-      { id: '1', name: 'Permission 1', status: PermissionStatus.Negative },
+      { id: '1', name: 'Permission 1', status: PermissionStatus.Negative }
     ];
 
     const annotatedPermissions = userService.getAdnotatedPermissions(user);
@@ -183,18 +181,15 @@ describe('UserService', () => {
         {
           id: '1',
           name: 'Group 1',
-          permissions: [
-          ],
-          negativePermissions: [
-            { id: '2', name: 'Permission 2' }
-          ]
+          permissions: [],
+          negativePermissions: [{ id: '2', name: 'Permission 2' }]
         }
       ]
     };
 
     const expectedPermissions: AdnotatedPermission[] = [
       { id: '1', name: 'Permission 1', status: PermissionStatus.User },
-      { id: '2', name: 'Permission 2', status: PermissionStatus.Deactivated },
+      { id: '2', name: 'Permission 2', status: PermissionStatus.Deactivated }
     ];
 
     const annotatedPermissions = userService.getAdnotatedPermissions(user);

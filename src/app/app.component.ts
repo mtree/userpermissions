@@ -9,9 +9,7 @@ export const API_SERVICE_TOKEN = new InjectionToken<IApiService>('apiService');
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet],
-  providers: [
-    { provide: API_SERVICE_TOKEN, useClass: ApiService }
-  ],
+  providers: [{ provide: API_SERVICE_TOKEN, useClass: ApiService }],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

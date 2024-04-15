@@ -30,8 +30,8 @@ export class PermissionFormComponent extends FormComponent<IPermission> implemen
 
   permissionForm: FormGroup = new FormGroup({
     id: new FormControl<string>(''),
-    name: new FormControl<string>(''),
-  });;
+    name: new FormControl<string>('')
+  });
 
   ngOnChanges(): void {
     if (this.permissionObject) {

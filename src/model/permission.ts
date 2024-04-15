@@ -1,4 +1,3 @@
-import { IEntity } from "./entity";
+import { IEntity } from './entity';
 
-export interface IPermission extends IEntity {
-}
+export interface IPermission extends IEntity {}

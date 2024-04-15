@@ -26,16 +26,15 @@ describe('PermissionFormComponent', () => {
         BrowserAnimationsModule,
         RouterModule.forRoot([])
       ]
-    })
-    .compileComponents();
-    
+    }).compileComponents();
+
     fixture = TestBed.createComponent(PermissionFormComponent);
     component = fixture.componentInstance;
 
     component.permissionObject = {
       id: '',
-      name: '',
-    }
+      name: ''
+    };
 
     fixture.detectChanges();
   });

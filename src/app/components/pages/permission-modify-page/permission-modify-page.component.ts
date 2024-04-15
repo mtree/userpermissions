@@ -3,14 +3,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { API_SERVICE_TOKEN } from '../../../app.component';
 import { IApiService } from '../../../lib/api/api.interface';
 import { IPermission } from '../../../../model/permission';
-import { PermissionFormComponent } from "../../organisms/permission-form/permission-form.component";
+import { PermissionFormComponent } from '../../organisms/permission-form/permission-form.component';
 
 @Component({
-    selector: 'app-permission-modify-page',
-    standalone: true,
-    templateUrl: './permission-modify-page.component.html',
-    styleUrl: './permission-modify-page.component.scss',
-    imports: [PermissionFormComponent]
+  selector: 'app-permission-modify-page',
+  standalone: true,
+  templateUrl: './permission-modify-page.component.html',
+  styleUrl: './permission-modify-page.component.scss',
+  imports: [PermissionFormComponent]
 })
 export class PermissionModifyPageComponent implements OnInit {
   private route: ActivatedRoute = inject(ActivatedRoute);
@@ -27,17 +27,15 @@ export class PermissionModifyPageComponent implements OnInit {
     this.permissionId = this.route.snapshot.paramMap.get('id');
 
     if (this.permissionId) {
-      this.apiService.getPermission(this.permissionId)
-        .subscribe(permission => {
-          this.permissionData = permission.data;
-        });
+      this.apiService.getPermission(this.permissionId).subscribe(permission => {
+        this.permissionData = permission.data;
+      });
     }
   }
 
   handleSavePermission(permission: IPermission): void {
-    this.apiService.upsertPermission(permission)
-      .subscribe(() => {
-        this.router.navigate(['/permissions']);
-      });
+    this.apiService.upsertPermission(permission).subscribe(() => {
+      this.router.navigate(['/permissions']);
+    });
   }
 }

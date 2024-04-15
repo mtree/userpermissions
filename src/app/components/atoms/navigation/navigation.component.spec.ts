@@ -9,14 +9,9 @@ describe('NavigationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        NavigationComponent,
-        MatButtonModule,
-        RouterModule.forRoot([])
-      ]
-    })
-    .compileComponents();
-    
+      imports: [NavigationComponent, MatButtonModule, RouterModule.forRoot([])]
+    }).compileComponents();
+
     fixture = TestBed.createComponent(NavigationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

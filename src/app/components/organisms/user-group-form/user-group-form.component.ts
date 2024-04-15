@@ -38,7 +38,7 @@ export class UserGroupFormComponent extends FormComponent<IUserGroup> implements
     id: new FormControl<string>(''),
     name: new FormControl<string>(''),
     permissions: new FormControl<Array<IPermission>>([]),
-    negativePermissions: new FormControl<Array<IPermission>>([]),
+    negativePermissions: new FormControl<Array<IPermission>>([])
   });
 
   ngOnChanges(): void {
@@ -51,5 +51,4 @@ export class UserGroupFormComponent extends FormComponent<IUserGroup> implements
     $event.preventDefault();
     this.saveUserGroup.emit(this.userGroupForm.value);
   }
-
 }

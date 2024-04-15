@@ -42,7 +42,7 @@ export class UserFormComponent extends FormComponent<IUser> implements OnChanges
     permissions: new FormControl<Array<IPermission>>([]),
     negativePermissions: new FormControl<Array<IPermission>>([]),
     userGroups: new FormControl<Array<IUserGroup>>([])
-  });;
+  });
 
   ngOnChanges(): void {
     if (this.userObject) {

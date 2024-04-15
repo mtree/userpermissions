@@ -1,19 +1,19 @@
-import { Observable } from "rxjs";
-import { IApiService } from "./api.interface";
-import { ListResponse } from "../../../model/api/list-response";
-import { EntityResponse } from "../../../model/api/entity.response";
-import { IUser } from "../../../model/user";
-import { HttpClient } from "@angular/common/http";
-import { IUserGroup } from "../../../model/user-group";
-import { IPermission } from "../../../model/permission";
-import { Injectable } from "@angular/core";
+import { Observable } from 'rxjs';
+import { IApiService } from './api.interface';
+import { ListResponse } from '../../../model/api/list-response';
+import { EntityResponse } from '../../../model/api/entity.response';
+import { IUser } from '../../../model/user';
+import { HttpClient } from '@angular/common/http';
+import { IUserGroup } from '../../../model/user-group';
+import { IPermission } from '../../../model/permission';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService implements IApiService {
   constructor(private http: HttpClient) {}
-  
+
   getUsers(): Observable<ListResponse<IUser>> {
     return this.http.get<ListResponse<IUser>>('/api/user');
   }

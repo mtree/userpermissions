@@ -29,7 +29,7 @@ export class PermissionListComponent {
   @Input() permissionList!: Observable<ListResponse<IPermission>>;
   @Output() deletePermission = new EventEmitter<string>();
   @Output() updatePermission = new EventEmitter<string>();
-  
+
   displayedColumns: string[] = ['id', 'name', 'actions'];
 
   deletePermissionClicked(id: string): void {

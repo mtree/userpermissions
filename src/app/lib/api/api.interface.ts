@@ -1,9 +1,9 @@
-import { Observable } from "rxjs";
-import { IUser } from "../../../model/user";
-import { IUserGroup } from "../../../model/user-group";
-import { IPermission } from "../../../model/permission";
-import { ListResponse } from "../../../model/api/list-response";
-import { EntityResponse } from "../../../model/api/entity.response";
+import { Observable } from 'rxjs';
+import { IUser } from '../../../model/user';
+import { IUserGroup } from '../../../model/user-group';
+import { IPermission } from '../../../model/permission';
+import { ListResponse } from '../../../model/api/list-response';
+import { EntityResponse } from '../../../model/api/entity.response';
 
 export interface IApiService {
   getUsers(): Observable<ListResponse<IUser>>;
