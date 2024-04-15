@@ -9,6 +9,7 @@ module.exports = {
       },
       extends: [
         'plugin:jsdoc/recommended',
+        'plugin:@typescript-eslint/strict-type-checked',
         'plugin:@angular-eslint/recommended',
         'plugin:@angular-eslint/template/process-inline-templates',
         'plugin:prettier/recommended',
